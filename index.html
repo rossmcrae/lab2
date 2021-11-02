@@ -15,6 +15,7 @@
       var bees;
       var updateTimer;
       var lastStingTime;
+      var bearSpeed;
     </script>
   </head>
 
@@ -27,11 +28,17 @@
         jumping. The objective is to have as less stings as possible!
       </p>
       <p>
+        Please set the bears speed
+        <input type="text" id="sb" size="3" />
+        px/ms <br />
+      </p>
+      <p>
         You can ajust bees' speed
-        <input type="text" id="speedBees" value="50" size="3" /> px/ms <br />
+        <input type="text" id="speedBees" value="30" size="3" /> px/ms <br />
         and the refresh period
         <input type="text" id="periodTimer" value="10" size="3" /> ms
       </p>
+      <button>Submit</button>
       <h2>Press left, right, up, down keys to move the bear</h2>
     </div>
     <div id="scores">
@@ -48,7 +55,6 @@
     </div>
     <div id="board">
       <img src="images/bear.gif" id="bear" alt="bear" />
-      <img src="images/bee.gif" id="bee" alt="bee" />
     </div>
   </body>
 </html>
