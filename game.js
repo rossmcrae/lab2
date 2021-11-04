@@ -1,5 +1,5 @@
 function Bear() {
-  this.dBear = 20;
+  this.dBear = 40;
   this.htmlElement = document.getElementById("bear");
   this.id = this.htmlElement.id;
   this.x = this.htmlElement.offsetLeft;
@@ -38,6 +38,7 @@ function Bear() {
 function start() {
   //create bear
   window.bear = new Bear();
+
   // Add an event listener to the keypress event.
   document.addEventListener("keydown", moveBear, false);
   //create new array for bees
@@ -47,7 +48,6 @@ function start() {
   updateBees();
   //take start time
   window.lastStingTime = new Date();
-  document.addEventListener("keydown", isHit, false);
 }
 
 // Handle keyboad events
@@ -183,9 +183,6 @@ function updateBees() {
   //use a fixed update period
   let period = 50; //modify this to control refresh period
   //update the timer for the next move
-  if (window.score === 1000) {
-    alert("Game Over");
-  }
   window.updateTimer = setTimeout("updateBees()", period);
 }
 
@@ -194,6 +191,10 @@ function isHit(defender, offender) {
     //check if the two image overlap
     let score = document.getElementById("hits").innerHTML;
     score = Number(score) + 1; //increment the score
+    if (score === 1000) {
+      score = 0;
+      alert("Game Over");
+    }
     document.getElementById("hits").innerHTML = score; //display the new score
     //calculate longest duration
     let newStingTime = new Date();
